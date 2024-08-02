@@ -1,0 +1,7 @@
+.python-version
+.idea/
+*.pyc
+__pycache__/
+.vagrant
+cluster.rkestate
+kube_config_cluster.yml
