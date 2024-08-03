@@ -1,12 +1,23 @@
-How will you test the changes?
-A sandbox environmet will be used to test changes to the cluster. This will protect production systems from being interrupted or corrupted.
-This is good practice that we can implement as part of our deployment strategy and Software Development Lifecycle.
+Plan Testing
 
-How will you ensure the changes don't negatively affect your cluster?
-Using our sandbox environmet we will tests changes so we can monitor and observe the impact of those changes.
-Once changes are deployed to the sandbox environmet, we can monitor metrics using Prometheus and Grafana.
-Also, we can collect logs and traces to determine the root cause of problems and troubleshoot more eficiently.
-Historical observability in the form of a changelog will be used to construct a continuous changelog that allows us not only
-to understand historical events, but also to trace how historical changes impact the current state of our cluster.
-Our overall focus will be on the state of our cluster as a whole, and not in individual components in isolation to gain a full
-overview of our cluster.
+1. Pre-Deployment Testing:
+- Unit Testing: Ensure all Kubernetes manifests, Helm charts, and scripts pass unit tests. 
+Validate syntax, structure, and lint checks using tools like kubeval and helm lint.
+- Static Analysis: Use static analysis tools like kube-score and kube-linter to identify potential 
+security issues and best practices violations in Kubernetes manifests.
+- Local Environment Testing: Deploy changes in a local Kubernetes environment using tools like 
+Minikube or Kind. Validate basic functionality and stability.
+2. Staging Environment Testing:
+- Deployment in Staging: Apply the changes to a staging environment that mirrors the production cluster 
+as closely as possible.
+- Integration Testing: Execute integration tests to ensure that all components interact correctly. 
+Use tools like Helm test and custom test suites.
+- End-to-End Testing: Run end-to-end tests to validate the full application workflow. Utilize frameworks 
+such as Ginkgo and Gomega for testing complex workflows.
+3. Performance Testing:
+- Load Testing: Use tools like k6 and JMeter to simulate high traffic and ensure the cluster can handle the load. 
+Monitor resource utilization and response times.
+- Stress Testing: Apply stress tests to identify the breaking point of the cluster and observe its behavior under extreme conditions.
+
+
+

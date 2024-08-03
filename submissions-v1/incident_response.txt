@@ -1,10 +1,10 @@
 1. Incident commander name:
-    Modani
+    Suspiciuous CPU activity results in a cryptomining attack
 
 2. Executive Summary of what happened:
-    - Three pods running different crypto miners were identified running moneropool, minergate and cryptonight containers.
-    - An attacker was able to get control of the cluster and use compute resources to abuse for crypto-mining.
-    - The Falco monitoring runtime reports the incident and the administrator was able to visualize the suspicious activity in Grafana.
+    Three pods running different crypto miners were identified running moneropool, minergate and cryptonight containers.
+    An attacker was able to get control of the cluster and use compute resources to abuse for crypto-mining.
+    The Falco monitoring runtime reports the incident and the administrator was able to visualize the suspicious activity in Grafana.
 
 3. Summary of what was affected:
     CPU resources had a significant spike indicating that attackers made use of compute resources.
